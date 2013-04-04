@@ -1,0 +1,27 @@
+<h1>Hello user!</h1>
+
+Signup:
+<% if @user %>
+  <% if @user.errors.present? %>
+      <% @user.errors.full_messages.each do |message| %>
+      <ul>
+        <li><span class="error"><%= message %></li>
+      </ul>
+    <% end %>
+  <% end %>
+<% end %>
+
+<form action='/signup' method='post'>
+  <input type='text' name='first_name' placeholder='Type your first name' autofocus='autofocus'>
+  <input type='text' name='last_name' placeholder='Type your last name'>
+  <input type='text' name='email' placeholder='Type your email'>
+  <input type='password' name='password' placeholder='Password'>
+  <input type='submit' value='Signup'>
+</form>
+
+Login:
+<form action='/login' method='post'>
+  <input type='text' name='email' placeholder='Type your email'>
+  <input type='password' name='password' placeholder='Password'>
+  <input type='submit' value='Login'>
+</form>
